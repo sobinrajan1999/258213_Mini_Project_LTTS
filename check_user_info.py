@@ -54,4 +54,3 @@ def check_due_date(id):
             due_date = borrow_date - return_date
             return due_date
 
-print(check_due_date('1710'))

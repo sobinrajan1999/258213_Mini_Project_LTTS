@@ -6,6 +6,7 @@ from check_user_info import user_info,book_id_info,check_due_date,check_borrow_l
 from Edit_or_delete_file_line import remove_from_borrow_list
 from add_detail import add_detail
 from borrow import borrow
+from defaulters import defaulters
 from sys import path
 
 while True:
@@ -111,7 +112,19 @@ while True:
 
 
     elif choice == 5:
-
+        for line in defaulters():
+            print(
+                """
+                *******************************************************************************************************************************
+                *                                                                                                                             *
+                *                                                          DEFAULTERS                                                         *
+                *                                                                                                                             *
+                *******************************************************************************************************************************
+                *  University ID  |          Name          |      Phone Number      |     Book ID     |     Borrow Date    |    Return Date   *
+                *******************************************************************************************************************************
+                """
+            )
+            print("*  {:<13}  |   {:<20}  |")
 
 
 
