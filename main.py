@@ -3,6 +3,8 @@ import os
 from search import search
 from add_book import add_book
 from check_user_info import user_info,book_id_info
+from add_detail import add_detail
+from borrow import borrow
 from sys import path
 
 while True:
@@ -61,21 +63,36 @@ while True:
 
 
     elif choice == 3:
-        while True:
-            name = input("\t\t\t\t\t\tEnter the name: ")
-            if user_info(name):
-                phone = input("\t\t\t\t\t\tEnter Phone number: ")
-                while True:
-                    book_Id = input("\t\t\t\t\t\tEnter the Book ID: ")
-                    if book_id_info(book_Id):
-                        pass
-                    else:
-                        break
-            else:
-                print("\t\t\t\t\t\tYour Entered name is not in the list!")
+        id = input("\t\t\t\t\t\tEnter the Id: ")
+        if user_info(id):
+            while True:
+                bookid = input("\t\t\t\t\t\tEnter the Book ID: ")
+                if book_id_info(bookid):
+                    borrow(id,bookid)
+                    print("Thank you for visiting library. You Issued book for 7 days. return in time.\n")
+                    break
+                else:
+                    print("\t\t\t\t\t\tSorry no book with this book id available!")
+                    continue
+        else:
+            print("\t\t\t\t\t\tYour Entered ID is not in the list!")
+            while True:
                 yes_no=input("\t\t\t\t\t\tdo you want to add your details (y/n) : ")
                 if yes_no == 'y':
-                    #to be continued
+                    id = int(input("\t\t\t\t\t\tEnter your University ID: "))
+                    name = input("\t\t\t\t\t\tEnter your name: ")
+                    phone = input("\t\t\t\t\t\tEnter your phone number: ")
+                    location = input("\t\t\t\t\t\tEnter your location: ")
+                    email = input("\t\t\t\t\t\tEnter your Email ID: ")
+                    add_detail(id,name,phone,location,email)
+                    break
+                elif yes_no == 'n':
+                    break
+                else:
+                    print("\t\t\t\t\t\tSorry wrong input!")
+                    continue
+
+
 
 
 
