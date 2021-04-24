@@ -7,6 +7,7 @@ from Edit_or_delete_file_line import remove_from_borrow_list
 from add_detail import add_detail
 from borrow import borrow
 from defaulters import defaulters
+from view_user_details import view_user_detail
 from sys import path
 
 while True:
@@ -43,10 +44,14 @@ while True:
 ************************************************************************************************************************************************************************"""
         )
         for i in search(book_name):
-            print(
-                "* {:<12}|  {:<40}|  {:<26}| {:<15} | {:<15} | {:<24} | {:<15} *".format(i[0], i[1][0:38], i[2][0:24],
-                                                                                         i[3],
-                                                                                         i[4], i[5], i[6][0:13]))
+            if i == 'not found':
+                print("\n*                                                                                     Not found!                                                                       *\n")
+            else:
+                print(
+                    "* {:<12}|  {:<40}|  {:<26}| {:<15} | {:<15} | {:<24} | {:<15} *".format(i[0], i[1][0:38],
+                                                                                             i[2][0:24],
+                                                                                             i[3],
+                                                                                             i[4], i[5], i[6][0:13]))
         print(
             "************************************************************************************************************************************************************************")
 
@@ -71,7 +76,7 @@ while True:
                 bookid = input("\t\t\t\t\t\tEnter the Book ID: ")
                 if book_id_info(bookid):
                     borrow(id,bookid)
-                    print("Thank you for visiting library. You Issued book for 7 days. if Not retured in time 10Rs/Day will be fined.\n")
+                    print("\t\t\t\t\t\tThank you for visiting library. You Issued book for 7 days.\n\t\t\t\t\t\t if Not retured in time 10Rs/Day will be fined.\n")
                     break
                 else:
                     print("\t\t\t\t\t\tSorry no book with this book id available!")
@@ -102,6 +107,7 @@ while True:
             due_date = check_due_date(id)
             if due_date.days <=0:
                 remove_from_borrow_list(id)
+                print("\t\t\t\t\t\tYou have returned the book. Knowledge is everything. Keep Learning!")
             else:
                 fine = due_date.days * 10
                 print("\n\t\t\t\t\t\tYou Have returned book late. So, you have to pay {}Rs fine.\n".format(fine))
@@ -112,19 +118,44 @@ while True:
 
 
     elif choice == 5:
+        print(
+            """
+            *******************************************************************************************************************************
+            *                                                                                                                             *
+            *                                                          DEFAULTERS                                                         *
+            *                                                                                                                             *
+            *******************************************************************************************************************************
+            *  University ID  |          Name          |      Phone Number      |     Book ID     |     Borrow Date    |    Return Date   *
+            *******************************************************************************************************************************
+            """
+        )
         for line in defaulters():
-            print(
-                """
-                *******************************************************************************************************************************
-                *                                                                                                                             *
-                *                                                          DEFAULTERS                                                         *
-                *                                                                                                                             *
-                *******************************************************************************************************************************
-                *  University ID  |          Name          |      Phone Number      |     Book ID     |     Borrow Date    |    Return Date   *
-                *******************************************************************************************************************************
-                """
-            )
-            print("*  {:<13}  |   {:<20}  |")
+            print("\t    *  {:<13}  |   {:<19}  |  {:<20}  |  {:<15}|  {:<18}|  {:<16}*".format(line[0],line[1],line[2],line[3],line[4],line[5]))
+        print("""
+            *******************************************************************************************************************************
+        """
+        )
+
+    elif choice == 6:
+        print("""
+        **********************************************************************************************************************************************************
+        *                                                                                                                                                        *
+        *                                                              LIBRARY USER DETAILS                                                                      *
+        *                                                                                                                                                        *
+        **********************************************************************************************************************************************************
+        *       University ID       |                    Name                  |         Phone Number        |      Location      |          Email ID            *  
+        **********************************************************************************************************************************************************"""
+        )
+        for line in view_user_detail():
+            print("        *  {:<23}  |   {:<37}  |  {:<25}  |  {:<16}  |  {:<26}  *".format(line[0],line[1],line[2],line[3],line[4]))
+        print(
+    """        **********************************************************************************************************************************************************
+         """)
+
+    elif choice == 7:
+        exit()
+    else:
+        print("\t\t\t\t\t\tSorry Wrong input!")
 
 
 
@@ -141,8 +172,7 @@ while True:
 
 
 
-
-    yes_no = input("\t\t\t\t\t\tDo you want to continue (y/n): ")
+    yes_no = input("\n\t\t\t\t\t\tDo you want to continue (y/n): ")
     if yes_no == 'y':
         continue
     else:
