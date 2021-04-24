@@ -5,3 +5,4 @@ def view_user_detail():
         list_1 = line.split(',')
         list_1.pop()
         yield list_1
+
