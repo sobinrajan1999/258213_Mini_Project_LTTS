@@ -159,20 +159,6 @@ while True:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     yes_no = input("\n\t\t\t\t\t\tDo you want to continue (y/n): ")
     if yes_no == 'y':
         continue
