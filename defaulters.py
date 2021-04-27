@@ -1,6 +1,7 @@
 from datetime import datetime
 import re
 
+
 def defaulters():
     borrow = open("borrow.csv", 'r', encoding='utf8')
     lines = borrow.readlines()
@@ -18,5 +19,3 @@ def defaulters():
         if due_date.days > 0:
             yield list_1
     borrow.close()
-
-
