@@ -2,6 +2,7 @@ from datetime import datetime
 import re
 
 
+# defaulters function to show those students who have to returned book till date.
 def defaulters():
     borrow = open("borrow.csv", 'r', encoding='utf8')
     lines = borrow.readlines()

@@ -2,6 +2,7 @@ import re
 from datetime import datetime
 
 
+# user_info function to check if the student info exist in the file or not
 def user_info(uid):
     user = open("user_info.csv", 'r', encoding='utf8')
     user_list = user.readlines()
@@ -14,6 +15,7 @@ def user_info(uid):
     return False
 
 
+# book_id_info function to check the book in the books.csv file
 def book_id_info(book_id):
     user = open("books.csv", 'r', encoding='utf8')
     user_list = user.readlines()
@@ -26,6 +28,7 @@ def book_id_info(book_id):
     return False
 
 
+# check_borrow_list function to check if the user borrowed book or not
 def check_borrow_list(uid):
     borrow = open("borrow.csv", 'r', encoding='utf8')
     lines = borrow.readlines()
@@ -38,6 +41,7 @@ def check_borrow_list(uid):
     return False
 
 
+# check_due_date function to check if the due_date passed or not
 def check_due_date(uid):
     borrow = open("borrow.csv", 'r', encoding='utf8')
     lines = borrow.readlines()

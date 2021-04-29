@@ -1,3 +1,5 @@
+
+# remove_from_borrow_list function to remove the info from the list
 def remove_from_borrow_list(uid):
     borrow = open("borrow.csv", 'r', encoding='utf8')
     lines = borrow.readlines()

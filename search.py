@@ -1,6 +1,7 @@
 import re
 
 
+# Search function to check to for the book info through name
 def search(search_name):
     book = open('books.csv', 'r', encoding='utf8')
     flag = False
