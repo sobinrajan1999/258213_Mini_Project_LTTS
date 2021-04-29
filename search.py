@@ -13,5 +13,5 @@ def search(search_name):
             flag = True
             yield line
     if not flag:
-        yield "not found"
+        return "not found"
     book.close()

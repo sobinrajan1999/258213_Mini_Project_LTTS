@@ -21,7 +21,8 @@ def book_id_info(book_id):
     user_list = user.readlines()
     for list_1 in user_list:
         line = list_1.split(sep=',')
-        if re.search(book_id, line[0]):
+        if book_id == line[0]:
+            print(line)
             user.close()
             return True
     user.close()
