@@ -13,6 +13,7 @@ Sr no. | File                          | Description
 7      | `add_book.py`                 | to add new book
 8      | `search.py`                   | search book info from the books.csv file
 9      | `view_user_info.py`           | to view students information
+10     | `test.py`                     | unit testing
 
 
 ## CSV Files and Description
@@ -26,4 +27,9 @@ Sr no. | File                          | Columns
 This folder contain a file named main.py that is calling the whole py files.
     
     python main.py
+
+for testing:
+
+    python test.py
+
 
